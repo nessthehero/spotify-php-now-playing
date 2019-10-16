@@ -1,0 +1,16 @@
+{
+    "name": "imoffitt/spotify",
+    "description": "Spotify API Helper in PHP",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ian Moffitt",
+            "email": "IMoffitt@barkleyrei.com"
+        }
+    ],
+    "require": {
+        "jwilsson/spotify-web-api-php": "dev-auto-refresh",
+        "vlucas/phpdotenv": "^3.6"
+    }
+}
