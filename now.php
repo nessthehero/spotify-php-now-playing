@@ -34,7 +34,7 @@
 			die();
 		} else {
 			$api->setAccessToken($atoken);
-		}
+		} 
 
 		$current = $api->getMyCurrentTrack();
 

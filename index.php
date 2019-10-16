@@ -37,11 +37,12 @@
 				$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
 				$writeRefresh = @file_put_contents('./' . $SALT . 'refresh.txt', $refreshToken);
 
-				header('Location: /index.php');
+//				header('Location: /index.php');
 			} catch (Exception $e) {
 				echo 'Spotify API Error: ' . $e->getCode();
+				die();
 			}
-			die();
+//
 		}
 
 		$atoken = @file_get_contents('./' . $SALT . 'access.txt');
