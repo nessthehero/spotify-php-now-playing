@@ -8,6 +8,13 @@
 	$SPOTIFY_CLIENT_ID = getenv('SPOTIFY_CLIENT_ID');
 	$SPOTIFY_CLIENT_SECRET = getenv('SPOTIFY_CLIENT_ID');
 	$SPOTIFY_REDIRECT_URI = getenv('SPOTIFY_CLIENT_ID');
+	$SALT = getenv('SALT');
+
+	if (empty($SALT)) {
+		$SALT = '_';
+	} else {
+		$SALT .= '_';
+	}
 
 	if (!empty($SPOTIFY_CLIENT_ID) && !empty($SPOTIFY_CLIENT_SECRET) && !empty($SPOTIFY_REDIRECT_URI)) {
 
@@ -19,8 +26,8 @@
 
 		$api = new SpotifyWebAPI\SpotifyWebAPI();
 
-		$atoken = @file_get_contents('./access.txt');
-		$rtoken = @file_get_contents('./refresh.txt');
+		$atoken = @file_get_contents('./' . $SALT . 'access.txt');
+		$rtoken = @file_get_contents('./' . $SALT . 'refresh.txt');
 
 		if (empty($atoken)) {
 			echo 'Error: No valid token';
