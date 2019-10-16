@@ -2,6 +2,11 @@
 
 	require 'vendor/autoload.php';
 
+	use Phpfastcache\Helper\Psr16Adapter;
+
+	$defaultDriver = 'Files';
+	$cache = new Psr16Adapter($defaultDriver);
+
 	$dotenv = Dotenv\Dotenv::create(__DIR__);
 	$dotenv->load();
 
@@ -18,25 +23,31 @@
 
 	if (!empty($SPOTIFY_CLIENT_ID) && !empty($SPOTIFY_CLIENT_SECRET) && !empty($SPOTIFY_REDIRECT_URI)) {
 
-		$session = new SpotifyWebAPI\Session(
-			$SPOTIFY_CLIENT_ID,
-			$SPOTIFY_CLIENT_SECRET,
-			$SPOTIFY_REDIRECT_URI
-		);
-
-		$api = new SpotifyWebAPI\SpotifyWebAPI();
-
-		$atoken = @file_get_contents('./' . $SALT . 'access.txt');
-		$rtoken = @file_get_contents('./' . $SALT . 'refresh.txt');
-
-		if (empty($atoken)) {
-			echo 'Error: No valid token';
-			die();
+		if ($cache->has('current_playing')) {
+			$current = $cache->get('current_playing');
 		} else {
-			$api->setAccessToken($atoken);
-		} 
+			$session = new SpotifyWebAPI\Session(
+				$SPOTIFY_CLIENT_ID,
+				$SPOTIFY_CLIENT_SECRET,
+				$SPOTIFY_REDIRECT_URI
+			);
 
-		$current = $api->getMyCurrentTrack();
+			$api = new SpotifyWebAPI\SpotifyWebAPI();
+
+			$atoken = @file_get_contents('./' . $SALT . 'access.txt');
+			$rtoken = @file_get_contents('./' . $SALT . 'refresh.txt');
+
+			if (empty($atoken)) {
+				echo 'Error: No valid token';
+				die();
+			} else {
+				$api->setAccessToken($atoken);
+			}
+
+			$current = $api->getMyCurrentTrack();
+
+			$cache->set('current_playing', $current, 5);
+		}
 
 		if (!empty($current)) {
 

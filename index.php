@@ -37,12 +37,12 @@
 				$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
 				$writeRefresh = @file_put_contents('./' . $SALT . 'refresh.txt', $refreshToken);
 
-//				header('Location: /index.php');
+				header('Location: /index.php');
 			} catch (Exception $e) {
 				echo 'Spotify API Error: ' . $e->getCode();
 				die();
 			}
-//
+
 		}
 
 		$atoken = @file_get_contents('./' . $SALT . 'access.txt');
@@ -65,7 +65,13 @@
 			$api->setAccessToken($atoken);
 		}
 
-		print_r($api->me());
+		try {
+			print_r($api->me());
+		} catch (Exception $e) {
+			$session->refreshAccessToken($rtoken);
+			$accessToken = $session->getAccessToken();
+			print_r($api->me());
+		}
 
 	} else {
 		echo 'Error: Bad client id/secret';
