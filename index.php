@@ -70,6 +70,11 @@
 		} catch (Exception $e) {
 			$session->refreshAccessToken($rtoken);
 			$accessToken = $session->getAccessToken();
+			$api->setAccessToken($accessToken);
+
+			unlink('./' . $SALT . 'access.txt');
+			$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
+
 			print_r($api->me());
 		}
 

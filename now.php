@@ -44,7 +44,18 @@
 				$api->setAccessToken($atoken);
 			}
 
-			$current = $api->getMyCurrentTrack();
+			try {
+				$current = $api->getMyCurrentTrack();
+			} catch (Exception $e) {
+				$session->refreshAccessToken($rtoken);
+				$accessToken = $session->getAccessToken();
+				$api->setAccessToken($accessToken);
+
+				unlink('./' . $SALT . 'access.txt');
+				$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
+
+				$current = $api->getMyCurrentTrack();
+			}
 
 			$cache->set('current_playing', $current, 5);
 		}
