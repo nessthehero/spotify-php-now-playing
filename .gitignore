@@ -1,5 +1,6 @@
 .env*
 vendor/
+scratch/
 composer.lock
 .idea
 

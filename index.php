@@ -68,16 +68,20 @@
 		try {
 			print_r($api->me());
 		} catch (Exception $e) {
-			$session->refreshAccessToken($rtoken);
-			$accessToken = $session->getAccessToken();
-			$api->setAccessToken($accessToken);
+			try {
+				$session->refreshAccessToken($rtoken);
+				$accessToken = $session->getAccessToken();
+				$api->setAccessToken($accessToken);
 
-			unlink('./' . $SALT . 'access.txt');
-			$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
+				unlink('./' . $SALT . 'access.txt');
+				$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
 
-			print_r($api->me());
+				print_r($api->me());
+			} catch (Exception $e) {
+				echo 'Error: Bad session token or client (1)';
+			}
 		}
 
 	} else {
-		echo 'Error: Bad client id/secret';
+		echo 'Error: Bad client id/secret (1)';
 	}

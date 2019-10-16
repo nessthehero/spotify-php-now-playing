@@ -2,7 +2,7 @@
 
 Gets the current playing track from a person's spotify and dumps it to the screen.
 
-Handles creating the access token, and uses a library that automatically refreshes the access token using a refresh token.
+Handles creating the access token, and uses a library that refreshes the access token using a refresh token when the standard token expires.
 
 ## Env
 
