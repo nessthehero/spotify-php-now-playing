@@ -2,5 +2,5 @@
 vendor/
 composer.lock
 
-access.txt
-refresh.txt
+*_access.txt
+*_refresh.txt

@@ -6,8 +6,15 @@
 	$dotenv->load();
 
 	$SPOTIFY_CLIENT_ID = getenv('SPOTIFY_CLIENT_ID');
-	$SPOTIFY_CLIENT_SECRET = getenv('SPOTIFY_CLIENT_ID');
-	$SPOTIFY_REDIRECT_URI = getenv('SPOTIFY_CLIENT_ID');
+	$SPOTIFY_CLIENT_SECRET = getenv('SPOTIFY_CLIENT_SECRET');
+	$SPOTIFY_REDIRECT_URI = getenv('SPOTIFY_REDIRECT_URI');
+	$SALT = getenv('SALT');
+
+	if (empty($SALT)) {
+		$SALT = '_';
+	} else {
+		$SALT .= '_';
+	}
 
 	if (!empty($SPOTIFY_CLIENT_ID) && !empty($SPOTIFY_CLIENT_SECRET) && !empty($SPOTIFY_REDIRECT_URI)) {
 
@@ -27,8 +34,8 @@
 				$accessToken = $session->getAccessToken();
 				$refreshToken = $session->getRefreshToken();
 
-				$writeAccess = @file_put_contents('./access.txt', $accessToken);
-				$writeRefresh = @file_put_contents('./refresh.txt', $refreshToken);
+				$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
+				$writeRefresh = @file_put_contents('./' . $SALT . 'refresh.txt', $refreshToken);
 
 				header('Location: /index.php');
 			} catch (Exception $e) {
@@ -37,12 +44,12 @@
 			die();
 		}
 
-		$atoken = @file_get_contents('./access.txt');
-		$rtoken = @file_get_contents('./refresh.txt');
+		$atoken = @file_get_contents('./' . $SALT . 'access.txt');
+		$rtoken = @file_get_contents('./' . $SALT . 'refresh.txt');
 
 		if (empty($atoken)) {
-			unlink('./access.txt');
-			unlink('./refresh.txt');
+			unlink('./' . $SALT . 'access.txt');
+			unlink('./' . $SALT . 'refresh.txt');
 
 			$options = [
 				'scope' => [
