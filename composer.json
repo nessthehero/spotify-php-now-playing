@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "jwilsson/spotify-web-api-php": "dev-auto-refresh",
+        "jwilsson/spotify-web-api-php": "^2.10",
         "vlucas/phpdotenv": "^3.6",
         "phpfastcache/phpfastcache": "^7.1"
     }
