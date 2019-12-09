@@ -80,6 +80,7 @@
 				$api->next();
 				print 'skipping...';
 			} catch (Exception $e) {
+				print_r($e);
 				echo 'Error: Bad session token or client (1)';
 			}
 		}
