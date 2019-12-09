@@ -66,7 +66,7 @@
 		}
 
 		try {
-			$api->next();
+			$api->next(0);
 			print 'skipping...';
 		} catch (Exception $e) {
 			try {
@@ -77,7 +77,7 @@
 				unlink('./' . $SALT . 'access.txt');
 				$writeAccess = @file_put_contents('./' . $SALT . 'access.txt', $accessToken);
 
-				$api->next();
+				$api->next(0);
 				print 'skipping...';
 			} catch (Exception $e) {
 				print_r($e);
