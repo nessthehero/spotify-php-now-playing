@@ -67,6 +67,7 @@
 
 		try {
 			print_r($api->me());
+			print_r($api->getMyDevices());
 		} catch (Exception $e) {
 			try {
 				$session->refreshAccessToken($rtoken);
