@@ -66,7 +66,7 @@
 			$api->setAccessToken($atoken);
 		}
 
-		$skipPassword = $_GET['p'];
+		$skipPassword = $_GET['p'] or '';
 
 		try {
 			if (empty($SKIP_PASSWORD) || empty($skipPassword) || ($SKIP_PASSWORD !== $skipPassword)) {
