@@ -90,8 +90,7 @@
 					$api->next(0);
 					print 'skipping...';
 				} catch (Exception $e) {
-					print_r($e);
-					echo 'Error: Bad session token or client (1)';
+					echo 'Error: ' . $e->getMessage() . ' (1)';
 				}
 			}
 		}
