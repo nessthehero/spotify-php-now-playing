@@ -123,6 +123,16 @@
 
 	}
 
+	function current_track_is_playing($current) {
+
+		if (isset($current->is_playing)) {
+			return $current->is_playing;
+		} else {
+			return FALSE;
+		}
+
+	}
+
 	function current_track_album_art($current) {
 
 		$art = '';

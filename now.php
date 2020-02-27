@@ -11,7 +11,7 @@
 
 	$current = current_track($cache);
 
-	if ($current->is_playing) {
+	if (current_track_is_playing($current)) {
 
 		$art = current_track_album_art($current);
 
