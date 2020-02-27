@@ -16,7 +16,7 @@
 		$art = current_track_album_art($current);
 
 		if (!empty($art)) {
-			echo $art . PHP_EOL;
+//			echo $art . PHP_EOL;
 		}
 
 		echo 'Now Playing: ' . current_track_apa($current) . PHP_EOL;
