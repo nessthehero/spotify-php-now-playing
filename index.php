@@ -22,28 +22,37 @@
 
 	$playlist = current_track_playlist($current, $cache);
 
-	$desc = $nowplaying;
+	$desc = '';
 	if (isset($playlist->name)) {
-		$desc .= PHP_EOL . $playlist->name;
+		$desc = 'Playlist: ' . $playlist->name;
 	}
+
+	$seconds_left = current_track_seconds_left($current);
 
 ?>
 
 <html prefix="og: http://ogp.me/ns#">
-	<head>
-		<title><?php echo current_track_apa($current); ?></title>
-		<meta property="og:title" content="<?php echo htmlspecialchars($nowplaying); ?>" />
-		<?php if (!empty($art)): ?>
+<head>
+	<title><?php echo current_track_apa($current); ?></title>
+	<meta property="og:title" content="<?php echo htmlspecialchars($nowplaying); ?>"/>
+	<?php if (!empty($art)): ?>
 		<meta property="og:image" content="<?php print $art; ?>"/>
-		<?php endif; ?>
+	<?php endif; ?>
+	<?php if (!empty($desc)): ?>
 		<meta property="og:description" content="<?php print htmlspecialchars($desc); ?>"/>
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="<?php echo htmlspecialchars($nowplaying); ?>"/>
+	<?php endif; ?>
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="<?php echo htmlspecialchars($nowplaying); ?>"/>
+	<?php if (!empty($desc)): ?>
 		<meta name="twitter:description" content="<?php print htmlspecialchars($desc); ?>"/>
-		<?php if (!empty($art)): ?>
+	<?php endif; ?>
+	<?php if (!empty($art)): ?>
 		<meta name="twitter:image" content="<?php print $art; ?>"/>
-		<?php endif; ?>
-	</head>
+	<?php endif; ?>
+	<?php if (!empty($seconds_left)): ?>
+		<meta http-equiv="refresh" content="<?php print $seconds_left; ?>" />
+	<?php endif; ?>
+</head>
 <?php
 
 	if (current_track_is_playing($current)) {

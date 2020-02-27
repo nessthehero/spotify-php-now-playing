@@ -172,15 +172,71 @@
 
 				$playlistId = $current->context->uri;
 
-				$playlist = $api->getPlaylist($playlistId);
+				try {
 
-				$cache->set('current_playlist', $playlist, 5);
+					$playlist = $api->getPlaylist($playlistId);
+
+					$cache->set('current_playlist', $playlist, 5);
+
+				} catch (Exception $e) {
+
+					$cache->set('current_playlist', $playlist, 5);
+
+					// Mute errors on this
+
+				}
 
 			}
 
 		}
 
 		return $playlist;
+
+	}
+
+	function current_track_progress($current) {
+
+		$progress = 0;
+		$length = 0;
+
+		if (isset($current->progress_ms)) {
+
+			$progress = $current->progress_ms;
+
+		}
+
+		if (isset($current->item->duration_ms)) {
+
+			$length = $current->item->duration_ms;
+
+		}
+
+		if (!current_track_is_playing($current)) {
+			$progress = 0;
+			$length = 0;
+		}
+
+		return array(
+			'progress' => $progress,
+			'length' => $length,
+			'remaining' => $length - $progress
+		);
+
+	}
+
+	function current_track_seconds_left($current) {
+
+		$progress = current_track_progress($current);
+
+		$remaining = 0;
+
+		if (!empty($progress['remaining'])) {
+
+			$remaining = ceil($progress['remaining'] / 1000);
+
+		}
+
+		return $remaining;
 
 	}
 
