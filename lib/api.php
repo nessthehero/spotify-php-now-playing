@@ -285,7 +285,7 @@
 			if ($current->is_playing) {
 				$return = implode(', ', $song_string);
 			} else {
-				$return = 'Nothing is currently playing. ' . PHP_EOL . 'Last song played: ' . implode(', ', $song_string);
+				$return = 'Nothing is currently playing. ' . PHP_EOL . '*Last song played:* ' . implode(', ', $song_string);
 			}
 
 		} else {

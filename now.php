@@ -17,7 +17,7 @@
 //			echo $art . PHP_EOL;
 		}
 
-		echo 'Now Playing: ' . current_track_apa($current) . PHP_EOL;
+		echo '*Now Playing:* ' . current_track_apa($current) . PHP_EOL;
 
 	} else {
 
@@ -28,5 +28,5 @@
 	$playlist = current_track_playlist($current, $cache);
 
 	if (isset($playlist->name)) {
-		echo 'Playlist: ' . $playlist->name;
+		echo '*Playlist:* ' . $playlist->name;
 	}
