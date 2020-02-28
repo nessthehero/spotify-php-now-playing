@@ -1,5 +1,6 @@
 <?php
 
+	const MAX_IMAGE_SIZE = 300;
 	const ROOT_DIR = __DIR__ . '/../';
 
 	require ROOT_DIR . 'vendor/autoload.php';

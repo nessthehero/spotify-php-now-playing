@@ -1,7 +1,5 @@
 <?php
 
-	const MAX_IMAGE_SIZE = 300;
-
 	require_once 'lib/api.php';
 
 	use Phpfastcache\Helper\Psr16Adapter;
@@ -29,7 +27,7 @@
 
 	$seconds_left = current_track_seconds_left($current);
 
-?>
+/*?>
 
 <html prefix="og: http://ogp.me/ns#">
 <head>
@@ -53,7 +51,7 @@
 		<meta http-equiv="refresh" content="<?php print $seconds_left; ?>" />
 	<?php endif; ?>
 </head>
-<?php
+<?php */
 
 	if (current_track_is_playing($current)) {
 
@@ -73,6 +71,7 @@
 		echo 'Playlist: ' . $playlist->name;
 	}
 
-?>
+/*?>
 
-</html>
+</html>*/
+
