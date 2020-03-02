@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="md-no-js" lang="en">
+<head>
+
+	{{> _meta}}
+
+	<title>{{ title }}</title>
+
+	{{> _fonts}}
+
+	{{> _css-main}}
+
+	{{> _js-modernizr}}
+
+</head>
+
+<body class="{{body-class}}">
+
+	{{> _svg }}
+
+	{{> _access-nav }}
+
+	<div class="container">
+
+		{{> _global-header }}
+
+		{% body %}
+
+		{{> _global-footer }}
+
+	</div>
+
+	{{> _js-main}}
+
+	{{> _js-home}}
+
+</body>
+</html>

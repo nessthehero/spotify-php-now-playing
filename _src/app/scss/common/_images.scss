@@ -1,0 +1,46 @@
+img {
+	max-width: 100%;
+
+	.user-markup & {
+		margin: 0.375em 0.75em 1.5em 0;
+
+		&[align='right'],
+		&[style*='float: right'] {
+			margin: 0.375em 0 1.5em 0.75em;
+		}
+
+		&[align='right'] {
+			float: right;
+		}
+	}
+
+	.user-markup p & {
+		float: left;
+
+		&,
+		&[align='right'],
+		&[style*='float: right'] {
+			margin-bottom: 0.375em;
+		}
+
+		&[align='right'] {
+			float: right;
+		}
+	}
+}
+
+// Used for elements that mimic the img tag
+// Please use role='img' and aria-label in place of alt on these elements!
+.image {
+	background-position: center 30%; // Positioned slightly above center due to subject matter (clients often request this)
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+%background {
+	// Better defaults for `background` so we can just do background: url(image) and not have to set anything else.
+	background-color: transparent;
+	background-position: top center;
+	background-repeat: no-repeat;
+}

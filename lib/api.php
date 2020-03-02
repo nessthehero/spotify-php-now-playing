@@ -247,17 +247,9 @@
 
 		if (!empty($current)) {
 
-			$song_title = $current->item->name;
-			$song_artists = array();
-			$song_album = $current->item->album->name;
-
-			$artists = $current->item->artists;
-
-			foreach ($artists as $key => $artist) {
-
-				$song_artists[] = $artist->name;
-
-			}
+			$song_title = current_track_song_title($current);
+			$song_artists = current_track_artists($current);
+			$song_album = current_track_album($current);
 
 			// APA
 			// Artist name, "Song title", Album
@@ -266,7 +258,7 @@
 
 			if (!empty($song_artists)) {
 
-				$song_string[] = implode(', ', $song_artists);
+				$song_string[] = $song_artists;
 
 			}
 
@@ -293,6 +285,50 @@
 		}
 
 		return $return;
+
+	}
+
+	function current_track_song_title($current) {
+
+		$song_title = '';
+
+		if (!empty($current)) {
+
+			$song_title = $current->item->name;
+
+		}
+
+		return $song_title;
+
+	}
+
+	function current_track_artists($current) {
+
+		$song_artists = array();
+
+		$artists = $current->item->artists;
+
+		foreach ($artists as $key => $artist) {
+
+			$song_artists[] = $artist->name;
+
+		}
+
+		return implode(', ', $song_artists);
+
+	}
+
+	function current_track_album($current) {
+
+		$song_album = '';
+
+		if (!empty($current)) {
+
+			$song_album = $current->item->album->name;
+
+		}
+
+		return $song_album;
 
 	}
 

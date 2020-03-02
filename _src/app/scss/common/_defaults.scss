@@ -1,0 +1,20 @@
+html,
+button,
+input,
+select,
+textarea {
+	color: $body-font-color;
+}
+
+// Remove the gap between images, videos, audio and canvas and the bottom of
+// their containers: h5bp.com/i/440
+audio,
+canvas,
+img,
+video {
+	vertical-align: middle;
+}
+
+iframe {
+	max-width: 100%;
+}

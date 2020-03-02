@@ -1,0 +1,12 @@
+// Loader
+//
+// Put imports for all the mixins in this repository in this file.
+
+@import '_headers';
+@import '_layer';
+@import '_links';
+
+// Use foundation rem-calc() for font sizing, margin, and padding.
+// margin: rem-calc(16px 0); ==> margin: 1rem 0;
+
+// Use Autoprefixer for vendor prefixes. Autoprefixer comes with the project generator.

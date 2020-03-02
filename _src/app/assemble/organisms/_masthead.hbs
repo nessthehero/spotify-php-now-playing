@@ -1,0 +1,26 @@
+---
+title: "Masthead"
+layout: component.hbs
+module: true
+---
+
+<!--
+
+This is an example of using Organisms and Molecules together to get a flexible component.
+
+This module has a data source fixture called masthead.json, that is just passing that `context` to a partial, which will
+parse the data and render the component.
+
+We do this in order to maintain a module .html page in the project index to highlight the component, but also allow the
+component to be reusable and accept data from other sources. The partial can store multiple variations of the module and
+render a specific one based on certain data.
+
+When using this method, keep the SCSS for this component in the module based SCSS file.
+
+-->
+
+<!-- module:masthead -->
+{{#parseFixture 'masthead.json'}}
+	{{> masthead }}
+{{/parseFixture}}
+<!-- end module:masthead -->

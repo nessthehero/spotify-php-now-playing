@@ -1,0 +1,35 @@
+<!-- partial:primary-nav -->
+{{#parseFixture 'default-content.json'}}
+    {{#with primary-nav}}
+
+        <nav id="js-primary-nav" class="primary-nav clearfix">
+            <ul class="primary-nav__list clearfix">
+            	{{#each this}}
+
+            		<li class="primary-nav__item{{#if children}} primary-nav__item--has-children{{/if}}">
+
+                        {{link this}}
+
+                        {{#if children}}
+
+                            <ul class="primary-nav__child-list clearfix">
+                                {{#each children}}
+
+                                    <li class="primary-nav__child-item">
+                                        {{link this}}
+                                    </li>
+
+                                {{/each}}
+                            </ul>
+
+                        {{/if}}
+
+            		</li>
+
+            	{{/each}}
+            </ul>
+        </nav>
+
+    {{/with}}
+{{/parseFixture}}
+<!-- end partial:primary-nav -->

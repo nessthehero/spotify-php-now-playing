@@ -1,0 +1,54 @@
+// Try modifying /helpers/overrides/_foundation.scss before setting global heading styles here
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	display: block;
+}
+
+// Mixin that applies Foundation heading styles to heading classes dynamically
+@each $size, $headers in $header-styles {
+	@each $header, $font-size in $headers {
+		.#{$header} {
+			@include breakpoint($size) {
+				font-size: rem-calc(map-deep-get($header-styles, $size, $header, 'font-size'));
+			}
+		}
+	}
+}

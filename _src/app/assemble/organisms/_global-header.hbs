@@ -1,0 +1,19 @@
+---
+title: "Global Header"
+layout: component.hbs
+module: true
+---
+
+<!-- module:global-header -->
+{{#parseFixture 'global-header.json'}}
+<header id="js-global-header" class="global-header">
+
+	{{> logo }}
+
+	Global Header
+
+	{{> primary-nav }}
+
+</header>
+{{/parseFixture}}
+<!-- end module:global-header -->

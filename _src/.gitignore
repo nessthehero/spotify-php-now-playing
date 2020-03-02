@@ -1,0 +1,33 @@
+# File system
+*.DS_Store
+
+# IDE directories
+.idea
+
+# Dependencies
+node_modules
+
+# Cache
+.stylelintcache
+*.sass-cache
+
+# Temporary
+*.tmp*
+*.log*
+*.orig*
+
+# Generated directories and files
+app/css
+app/js
+app/modules
+app/*.html
+dist
+
+# Icomoon
+app/sass/icons/demo-files
+app/sass/icons/*.html
+app/sass/icons/Read Me.txt
+app/sass/icons/*.js
+
+# Lock
+package-lock.json

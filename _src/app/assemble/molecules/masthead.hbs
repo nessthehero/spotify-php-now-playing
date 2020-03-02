@@ -1,0 +1,61 @@
+<!-- {{!
+This is an example of using Organisms and Molecules together to get a flexible component.
+
+We arrive here either from _masthead.hbs, or from any template that needs to display this partial in a unique manner.
+
+The context passed to this molecule should match what exists in masthead.json under fixtures.
+
+Everything here is an example and not a strict guideline on how to form the markup for organisms and molecules. Just understand
+that the JSON data in the fixture should match between the one for the organism and the context being passed from a template.
+
+An example:
+
+masthead.json
+{
+	"title": "Masthead",
+	"caption": "This is a masthead caption",
+	"img": "/img/masthead.png"
+}
+
+template.json
+{
+	masthead: {
+		"title": "This template's masthead",
+		"caption": "A different caption",
+		"img": "/img/level-masthead.png"
+	}
+}
+
+_masthead.hbs (this is the organism)
+{{! 	<!-- module:masthead -->
+{{! 	{{#parseFixture 'masthead.json'}}
+{{! 		{{> masthead }}
+{{! 	{{/parseFixture}}
+{{! 	<!-- end module:masthead -->
+
+template.hbs (This will render the molecule version of the masthead using the template's data)
+{{!		<main>
+{{!
+{{! 		{{#parseFixture 'template.json'}}
+{{! 			{{> masthead masthead }}
+{{! 		{{/parseFixture}}
+{{!
+{{! 	</main>
+
+template2.hbs (This will render the organism version of the masthead)
+{{!		<main>
+{{!
+{{! 		{{> _masthead }}
+{{!
+{{! 	</main>
+
+}} -->
+<figure class="masthead">
+
+	<div class="image" style="background-image: url('{{img}}');"></div>
+
+	<figcaption class="masthead__caption">
+		<p>{{caption}}</p>
+	</figcaption>
+
+</figure>

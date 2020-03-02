@@ -1,0 +1,10 @@
+// A better looking default horizontal rule
+hr {
+	border-color: $medium-gray;
+	border-style: solid;
+	border-width: 1px 0 0;
+	display: block;
+	height: 1px;
+	margin: 1em 0;
+	padding: 0;
+}

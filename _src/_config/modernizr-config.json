@@ -1,0 +1,25 @@
+{
+	"cache": false,
+	"devFile": false,
+	"dest": "app/js/plugins/modernizr.js",
+	"crawl": true,
+	"classPrefix": "md-",
+	"tests": [],
+	"excludeTests": [
+		"hidden",
+		"flash",
+		"svg"
+	],
+	"options": [
+		"mq",
+		"html5shiv",
+		"setClasses"
+	],
+	"files": {
+		"src": [
+			"./app/ejs/**/*.js",
+			"./app/scss/**/*.scss"
+		]
+	},
+	"uglify": true
+}

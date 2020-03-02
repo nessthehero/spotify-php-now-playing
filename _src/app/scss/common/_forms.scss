@@ -1,0 +1,153 @@
+// Opinion: Background color to white, and shrink if necessary
+input[type='text'],
+input[type='password'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='url'],
+input[type='color'],
+input[type='file'],
+textarea,
+select {
+	background-color: $white;
+	max-width: 100%;
+}
+
+// Set word-break back to normal so that text inputs don't wrap
+input[type='text'],
+input[type='password'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='url'],
+input[type='color'],
+input[type='file'] {
+	word-break: normal;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: rem-calc(10);
+
+	+ input[type='checkbox'],
+	+ input[type='radio'] {
+		left: auto;
+		opacity: 1;
+		position: static;
+	}
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+	left: -9999px;
+	opacity: 0;
+	position: absolute;
+
+	&:checked + label {
+		color: $black;
+
+		&:after {
+			opacity: 1;
+		}
+	}
+
+	+ label {
+		color: $black;
+		font-weight: 400;
+		min-height: $radio-checkbox-size;
+		padding-left: $radio-checkbox-size + rem-calc(10);
+		padding-top: 0.275em;
+		position: relative;
+		transition: color 0.4s;
+
+		&:before,
+		&:after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+		}
+
+		&:before {
+			border: 2px solid $black;
+			height: $radio-checkbox-size;
+			left: 0;
+			top: 0;
+			width: $radio-checkbox-size;
+		}
+
+		&:after {
+			background-color: $black;
+			height: $radio-checkbox-size - rem-calc(10);
+			left: rem-calc(5);
+			opacity: 0;
+			top: rem-calc(5);
+			transition: opacity $transition-time;
+			width: $radio-checkbox-size - rem-calc(10);
+		}
+	}
+
+	&:hover + label {
+		color: $black;
+	}
+}
+
+input[type='radio'] + label {
+	&:before,
+	&:after {
+		border-radius: $radio-checkbox-size;
+	}
+}
+
+// Allow only vertical resizing of textareas.
+textarea {
+	resize: vertical;
+}
+
+// Remove default fieldset styles.
+fieldset {
+	border: 0;
+	margin: 0;
+	min-width: initial; // Fixes a couple browser width bugs
+	padding: 0;
+}
+
+// ---------- Placeholder Styles ---------- //
+// scss-lint:disable VendorPrefix
+::placeholder {
+	color: $placeholder-color;
+}
+
+::-webkit-input-placeholder {
+	color: $placeholder-color;
+}
+
+:-moz-placeholder {
+	color: $placeholder-color;
+	opacity: 1; // FF Fix
+}
+
+::-moz-placeholder {
+	color: $placeholder-color;
+	opacity: 1; // FF Fix
+}
+
+:-ms-input-placeholder {
+	color: $placeholder-color;
+}
+// scss-lint:enable VendorPrefix
+
+// Add custom generic form styles here

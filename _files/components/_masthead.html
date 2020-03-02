@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="md-no-js" lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- http://microformats.org/wiki/hcard-cheatsheet -->
+	<link rel="profile" href="http://microformats.org/profile/hcard" />
+
+	<title>Masthead</title>
+
+	<base href="../"/>
+
+
+	<!-- build:css css/main.css -->
+	<link rel="stylesheet" href="css/main.css" />
+	<!-- endbuild -->
+
+	<!-- build:js js/plugins/modernizr.optimized.js -->
+	<script src="js/plugins/modernizr.js"></script>
+	<!-- endbuild -->
+
+</head>
+<body>
+
+
+	<div class="container">
+
+		<!--
+
+This is an example of using Organisms and Molecules together to get a flexible component.
+
+This module has a data source fixture called masthead.json, that is just passing that `context` to a partial, which will
+parse the data and render the component.
+
+We do this in order to maintain a module .html page in the project index to highlight the component, but also allow the
+component to be reusable and accept data from other sources. The partial can store multiple variations of the module and
+render a specific one based on certain data.
+
+When using this method, keep the SCSS for this component in the module based SCSS file.
+
+-->
+
+<!-- module:masthead -->
+	<!-- 
+	 -->
+	<figure class="masthead">
+	
+		<div class="image" style="background-image: url('/img/masthead.png');"></div>
+	
+		<figcaption class="masthead__caption">
+			<p>This is a masthead caption</p>
+		</figcaption>
+	
+	</figure>
+<!-- end module:masthead -->
+
+
+	</div>
+
+	<!-- build:js js/main.js -->
+	<script src="js/main.js"></script>
+	<!-- endbuild -->
+
+</body>
+</html>

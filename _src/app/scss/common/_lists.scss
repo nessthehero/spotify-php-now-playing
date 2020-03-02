@@ -1,0 +1,118 @@
+ul {
+	nav & {
+		@extend %list-reset;
+	}
+}
+
+li {
+
+}
+
+// Uncomment the code below to enable custom styled ul bullets and ol numbers.
+// Built to support any font size and up to triple digit numbers.
+
+// $list-font-size: 1rem;
+// $ul-bullet-color: $black;
+// $ol-number-color: $black;
+// $list-item-spacing: 0.5em;
+//
+// ul,
+// ol {
+//
+// 	.user-markup & {
+// 		overflow: hidden;
+// 		margin: 0 0 1em;
+// 		padding: 0 0 0 1.75em; // Space needed for absolutely positioned bullets/numbers
+//
+// 		&,
+// 		ul,
+// 		ol {
+// 			counter-reset: itemNum; // Resets count with every new ol
+// 		}
+//
+// 		ul,
+// 		ol {
+// 			margin: 0; // Prevents wonky margins with nested lists
+//
+// 			// scss-lint:disable SelectorDepth
+// 			// Disabling lint because this is user markup and classes for this likely won't be used -SH
+// 			li:first-child {
+// 				margin-top: $list-item-spacing;
+// 			}
+// 			// scss-lint:enable SelectorDepth
+//
+// 		}
+//
+// 		&,
+// 		li {
+// 			font-size: $list-font-size;
+// 			list-style: none;
+// 		}
+//
+// 		li {
+// 			position: relative;
+// 			margin-bottom: $list-item-spacing;
+//
+// 			&:before {
+// 				position: absolute;
+// 			}
+//
+// 			&:last-child {
+// 				margin: 0;
+// 			}
+//
+// 		}
+//
+// 	}
+//
+// }
+//
+// ul {
+//
+// 	.user-markup & {
+//
+// 		> li {
+//
+// 			&:before {
+// 				content: '\2022';
+// 				color: $ul-bullet-color;
+// 				font-size: 1.25em;
+// 				line-height: 1.125em;
+// 				vertical-align: middle;
+// 				left: -1em;
+// 			}
+//
+// 		}
+//
+// 	}
+//
+// }
+//
+// ol {
+//
+// 	.user-markup & {
+//
+// 		> li {
+// 			counter-increment: itemNum;
+//
+// 			&:before {
+// 				content: counter(itemNum)'.';
+// 				color: $ol-number-color;
+// 				left: -1.375em;
+// 			}
+//
+// 			&:nth-child(n+10) { // Give any number with double digits extra padding
+// 				padding-left: 0.5em;
+// 			}
+//
+// 			&:nth-child(n+100) { // Give any number with triple digits extra padding
+// 				padding-left: 1em;
+// 			}
+//
+// 		}
+//
+// 	}
+//
+// }
+
+// ----- End custom bullets/numbers code ----- //

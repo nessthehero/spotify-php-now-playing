@@ -1,0 +1,11 @@
+{
+  "generatorVersion": "4.0.0-rc.14",
+  "app": "app",
+  "dist": "dist",
+  "deploy": "../_files",
+  "brei-project-scaffold": "1.0.6",
+  "brei-sass-boilerplate": "3.0.2",
+  "brei-sass-mixins": "2.0.2",
+  "brei-assemble-structure": "2.0.2",
+  "brei-assemble-helpers": "2.0.2"
+}

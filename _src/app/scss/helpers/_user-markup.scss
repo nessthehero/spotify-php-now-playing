@@ -1,0 +1,6 @@
+// For all WYSIWYG powered text
+.user-markup {
+	p {
+		overflow: auto; // Clears any floated content, like images
+	}
+}

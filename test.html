@@ -1,57 +1,13 @@
-<?php
-
-	require_once 'lib/api.php';
-
-	use Phpfastcache\Helper\Psr16Adapter;
-
-	$defaultDriver = 'Files';
-	$cache = new Psr16Adapter($defaultDriver);
-
-	$art = '';
-	$nowplaying = '';
-	$current = current_track($cache);
-
-	if (current_track_is_playing($current)) {
-		$art = current_track_album_art($current);
-		$nowplaying = 'Now Playing: ' . current_track_apa($current);
-	} else {
-		$nowplaying = current_track_apa($current);
-	}
-
-	$playlist = current_track_playlist($current, $cache);
-
-	$desc = '';
-	if (isset($playlist->name)) {
-		$desc = 'Playlist: ' . $playlist->name;
-	}
-
-	$seconds_left = current_track_seconds_left($current);
-
-?>
-
-<html prefix="og: http://ogp.me/ns#">
+<html>
 <head>
-	<title><?php echo current_track_apa($current); ?></title>
-	<meta property="og:title" content="<?php echo htmlspecialchars($nowplaying); ?>"/>
-	<?php if (!empty($art)): ?>
-		<meta property="og:image" content="<?php print $art; ?>"/>
-	<?php endif; ?>
-	<?php if (!empty($desc)): ?>
-		<meta property="og:description" content="<?php print htmlspecialchars($desc); ?>"/>
-	<?php endif; ?>
-	<meta name="twitter:card" content="summary_large_image"/>
-	<meta name="twitter:title" content="<?php echo htmlspecialchars($nowplaying); ?>"/>
-	<?php if (!empty($desc)): ?>
-		<meta name="twitter:description" content="<?php print htmlspecialchars($desc); ?>"/>
-	<?php endif; ?>
-	<?php if (!empty($art)): ?>
-		<meta name="twitter:image" content="<?php print $art; ?>"/>
-	<?php endif; ?>
-	<?php if (!empty($seconds_left)): ?>
-		<meta http-equiv="refresh" content="<?php print $seconds_left; ?>"/>
-	<?php endif; ?>
+	<meta charset="UTF-8">
+	<title>Flat music player</title>
 
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<!-- production version, optimized for size and speed -->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -244,38 +200,32 @@
 			color: #49654d;
 		}
 	</style>
-
 </head>
 <body>
 	<div id="player">
-		<div v-if="song.playing">
-			<div class="album" v-bind:style="albumArt">
-			</div>
-			<div class="info">
-				<div class="progress-bar">
-					<div class="time--current">{$ songPosition $}</div>
-					<div class="time--total">-{$ songLength $}</div>
-					<div class="fill" v-bind:style="progressBar"></div>
-				</div>
-				<div class="currently-playing">
-					<h2 class="song-name">{$ song.song $}</h2>
-					<h3 class="artist-name">{$ song.artist $}</h3>
-					<h4 class="artist-name">{$ song.albumname $}</h4>
-				</div>
-				<div class="controls">
-					<div class="option"><i class="fas fa-bars"></i></div>
-					<div class="volume"><i class="fas fa-volume-up"></i></div>
-					<div class="previous"><i class="fas fa-backward"></i></div>
-					<div class="play"><i class="fas fa-play"></i></div>
-					<div class="pause"><i class="fas fa-pause"></i></div>
-					<div class="next"><i class="fas fa-forward"></i></div>
-					<div class="shuffle"><i class="fas fa-random"></i></div>
-					<div class="add"><i class="fas fa-plus"></i></div>
-				</div>
-			</div>
+		<div class="album" v-bind:style="albumArt">
 		</div>
-		<div v-else>
-
+		<div class="info">
+			<div class="progress-bar">
+				<div class="time--current">{$ songPosition $}</div>
+				<div class="time--total">-{$ songLength $}</div>
+				<div class="fill" v-bind:style="progressBar"></div>
+			</div>
+			<div class="currently-playing">
+				<h2 class="song-name">{$ song.song $}</h2>
+				<h3 class="artist-name">{$ song.artist $}</h3>
+				<h4 class="artist-name">{$ song.albumname $}</h4>
+			</div>
+			<div class="controls">
+				<div class="option"><i class="fas fa-bars"></i></div>
+				<div class="volume"><i class="fas fa-volume-up"></i></div>
+				<div class="previous"><i class="fas fa-backward"></i></div>
+				<div class="play"><i class="fas fa-play"></i></div>
+				<div class="pause"><i class="fas fa-pause"></i></div>
+				<div class="next"><i class="fas fa-forward"></i></div>
+				<div class="shuffle"><i class="fas fa-random"></i></div>
+				<div class="add"><i class="fas fa-plus"></i></div>
+			</div>
 		</div>
 	</div>
 	<footer>
@@ -285,4 +235,3 @@
 	<script src="_files/js/main.js"></script>
 </body>
 </html>
-
