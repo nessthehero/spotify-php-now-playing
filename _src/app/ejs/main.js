@@ -4,7 +4,8 @@
 
 import './lib/jquery.js';
 
-const endpointSongAndPosition = 'http://local.spotify/position.php';
+// const endpointSongAndPosition = 'http://local.spotify/position.php';
+const endpointSongAndPosition = 'http://spotify.ianmmoffitt.co/position.php';
 
 window.vm = new Vue({
 	delimiters: ['{$', '$}'],
