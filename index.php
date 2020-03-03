@@ -248,34 +248,29 @@
 </head>
 <body>
 	<div id="player">
-		<div v-if="song.playing">
-			<div class="album" v-bind:style="albumArt">
-			</div>
-			<div class="info">
-				<div class="progress-bar">
-					<div class="time--current">{$ songPosition $}</div>
-					<div class="time--total">-{$ songLength $}</div>
-					<div class="fill" v-bind:style="progressBar"></div>
-				</div>
-				<div class="currently-playing">
-					<h2 class="song-name">{$ song.song $}</h2>
-					<h3 class="artist-name">{$ song.artist $}</h3>
-					<h4 class="artist-name">{$ song.albumname $}</h4>
-				</div>
-				<div class="controls">
-					<div class="option"><i class="fas fa-bars"></i></div>
-					<div class="volume"><i class="fas fa-volume-up"></i></div>
-					<div class="previous"><i class="fas fa-backward"></i></div>
-					<div class="play"><i class="fas fa-play"></i></div>
-					<div class="pause"><i class="fas fa-pause"></i></div>
-					<div class="next"><i class="fas fa-forward"></i></div>
-					<div class="shuffle"><i class="fas fa-random"></i></div>
-					<div class="add"><i class="fas fa-plus"></i></div>
-				</div>
-			</div>
+		<div class="album" v-bind:style="albumArt">
 		</div>
-		<div v-else>
-
+		<div class="info" v-if="song.playing">
+			<div class="progress-bar">
+				<div class="time--current">{$ songPosition $}</div>
+				<div class="time--total">{$ songLength $}</div>
+				<div class="fill" v-bind:style="progressBar"></div>
+			</div>
+			<div class="currently-playing">
+				<h2 class="song-name">{$ song.song $}</h2>
+				<h3 class="artist-name">{$ song.artist $}</h3>
+				<h4 class="artist-name">{$ song.albumname $}</h4>
+			</div>
+			<div class="controls">
+				<div class="option"><i class="fas fa-bars"></i></div>
+				<div class="volume"><i class="fas fa-volume-up"></i></div>
+				<div class="previous"><i class="fas fa-backward"></i></div>
+				<div class="play"><i class="fas fa-play"></i></div>
+				<div class="pause"><i class="fas fa-pause"></i></div>
+				<div class="next"><i class="fas fa-forward"></i></div>
+				<div class="shuffle"><i class="fas fa-random"></i></div>
+				<div class="add"><i class="fas fa-plus"></i></div>
+			</div>
 		</div>
 	</div>
 	<footer>

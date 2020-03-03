@@ -12,6 +12,7 @@ window.vm = new Vue({
 	el: '#player',
 	data: {
 		frameId: '',
+		fallbackImg: '/_files/img/silence.jpg',
 		song: {
 			albumart: '',
 			albumname: '',
@@ -27,7 +28,8 @@ window.vm = new Vue({
 		},
 		lastChecked: 0,
 		progress: 0,
-		songPosition: '0:00'
+		songPosition: '0:00',
+		timeout: 6000
 	},
 	created: function () {
 
@@ -47,8 +49,14 @@ window.vm = new Vue({
 	computed: {
 
 		albumArt: function () {
+
+			let albumArt = this.fallbackImg;
+			if (this.song.albumart !== '') {
+				albumArt = this.song.albumart;
+			}
+
 			return {
-				backgroundImage: 'url(' + this.song.albumart + ')'
+				backgroundImage: 'url(' + albumArt + ')'
 			};
 		},
 
@@ -96,7 +104,9 @@ window.vm = new Vue({
 				this.song = response.data;
 				this.lastChecked = seconds;
 
-				setTimeout(this.getSongAndPosition, 10000);
+				window.document.title = this.song.song + ' - ' + this.song.artist;
+
+				setTimeout(this.getSongAndPosition, this.timeout);
 
 			}.bind(this));
 
