@@ -104,7 +104,13 @@ window.vm = new Vue({
 				this.song = response.data;
 				this.lastChecked = seconds;
 
-				window.document.title = this.song.song + ' - ' + this.song.artist;
+				let pageTitle = 'zZzZ';
+
+				if (this.song.song !== '') {
+					pageTitle = this.song.song + ' - ' + this.song.artist;
+				}
+
+				window.document.title = pageTitle;
 
 				setTimeout(this.getSongAndPosition, this.timeout);
 
