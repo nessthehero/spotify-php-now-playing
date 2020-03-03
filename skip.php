@@ -9,6 +9,8 @@
 	if ($skip) {
 		echo 'skipping...' . PHP_EOL;
 
+		$skip_cache_breaker = TRUE;
+
 		include 'now.php';
 
 	} else {

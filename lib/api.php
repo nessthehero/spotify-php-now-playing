@@ -107,12 +107,12 @@
 
 	}
 
-	function current_track($cache) {
+	function current_track($cache, $breaker = false) {
 
 		$current = null;
 		$api = _get_api_object();
 
-		if ($cache->has('current_playing')) {
+		if ($cache->has('current_playing') && !$breaker) {
 			$current = $cache->get('current_playing');
 		} else {
 			$current = $api->getMyCurrentTrack();

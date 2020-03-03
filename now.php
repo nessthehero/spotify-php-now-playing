@@ -7,7 +7,12 @@
 	$defaultDriver = 'Files';
 	$cache = new Psr16Adapter($defaultDriver);
 
-	$current = current_track($cache);
+	$breaker = false;
+	if (!empty($skip_cache_breaker)) {
+		$breaker = $skip_cache_breaker;
+	}
+
+	$current = current_track($cache, $breaker);
 
 	if (current_track_is_playing($current)) {
 
