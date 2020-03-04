@@ -11,6 +11,8 @@
 
 		$skip_cache_breaker = TRUE;
 
+		sleep(0.5);
+
 		include 'now.php';
 
 	} else {
