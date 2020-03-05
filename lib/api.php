@@ -115,7 +115,12 @@
 		if ($cache->has('current_playing') && !$breaker) {
 			$current = $cache->get('current_playing');
 		} else {
-			$current = $api->getMyCurrentTrack();
+			try {
+				$current = $api->getMyCurrentTrack();
+			} catch (Exception $e) {
+				echo 'Error: ' . $e->getMessage();
+				die();
+			}
 
 			$cache->set('current_playing', $current, 5);
 		}

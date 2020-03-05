@@ -84,25 +84,11 @@
 
 		.album {
 			background-repeat: no-repeat;
-			background-size: 300px;
+			background-size: cover;
 			width: 100%;
 			height: 100%;
 			border-radius: 5px;
 			position: absolute;
-		}
-
-		.heart {
-			position: absolute;
-			right: 0;
-			color: #ffffff;
-			margin: 10px;
-			transition: all .4s ease;
-		}
-
-		.clicked {
-			color: #49654d;
-			transform: scale(1.2);
-			transition: all .4s ease;
 		}
 
 		.info {
@@ -113,10 +99,6 @@
 			background: rgba(255, 255, 255, 0.85);
 			transform: translateY(35px);
 			transition: all .5s ease-in-out;
-		}
-
-		.up {
-			transform: translateY(0px);
 		}
 
 		.progress-bar {
@@ -174,49 +156,6 @@
 			margin-top: 5px;
 		}
 
-		.controls {
-			display: flex;
-			align-items: center;
-			font-size: .8em;
-			justify-content: center;
-			color: #8ba989;
-		}
-
-		.controls .play, .controls .pause {
-			margin: 15px 25px;
-			color: #6e946c;
-		}
-
-		.controls .option {
-			left: 10px;
-			position: absolute;
-			font-size: .8em;
-		}
-
-		.controls .add {
-			right: 10px;
-			position: absolute;
-			font-size: .8em;
-		}
-
-		.controls .volume {
-			margin-right: 30px;
-			font-size: .8em;
-		}
-
-		.controls .shuffle {
-			margin-left: 30px;
-			font-size: .8em;
-		}
-
-		.play, .pause, .next, .previous, .option, .add, .volume, .shuffle {
-			transition: all .5s ease;
-		}
-
-		.play:hover, .pause:hover, .next:hover, .previous:hover, .option:hover, .add:hover, .volume:hover, .shuffle:hover {
-			color: #557c5f;
-		}
-
 		footer {
 			position: absolute;
 			bottom: 0;
@@ -255,16 +194,6 @@
 				<h2 class="song-name">{$ song.song $}</h2>
 				<h3 class="artist-name">{$ song.artist $}</h3>
 				<h4 class="artist-name">{$ song.albumname $}</h4>
-			</div>
-			<div class="controls">
-				<div class="option"><i class="fas fa-bars"></i></div>
-				<div class="volume"><i class="fas fa-volume-up"></i></div>
-				<div class="previous"><i class="fas fa-backward"></i></div>
-				<div class="play"><i class="fas fa-play"></i></div>
-				<div class="pause"><i class="fas fa-pause"></i></div>
-				<div class="next"><i class="fas fa-forward"></i></div>
-				<div class="shuffle"><i class="fas fa-random"></i></div>
-				<div class="add"><i class="fas fa-plus"></i></div>
 			</div>
 		</div>
 	</div>
