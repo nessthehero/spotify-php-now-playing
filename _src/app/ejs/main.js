@@ -95,26 +95,50 @@ window.vm = new Vue({
 
 			let ep = endpointSongAndPosition;
 
-			axios.get(ep).then(function (response) {
+			axios.get(ep)
+				.then(function (response) {
 
-				let now = new Date();
+					let now = new Date();
 
-				let seconds = now.getTime();
+					let seconds = now.getTime();
 
-				this.song = response.data;
-				this.lastChecked = seconds;
+					this.song = response.data;
+					this.lastChecked = seconds;
 
-				let pageTitle = 'zZzZ';
+					let pageTitle = 'zZzZ';
 
-				if (this.song.song !== '') {
-					pageTitle = this.song.song + ' - ' + this.song.artist;
-				}
+					if (this.song.song !== '') {
+						pageTitle = this.song.song + ' - ' + this.song.artist;
+					}
 
-				window.document.title = pageTitle;
+					window.document.title = pageTitle;
 
-				setTimeout(this.getSongAndPosition, this.timeout);
+					setTimeout(this.getSongAndPosition, this.timeout);
 
-			}.bind(this));
+				}.bind(this))
+				.catch(function (error) {
+
+					console.error(error);
+
+					this.song = {
+						albumart: '',
+						albumname: '',
+						artist: '',
+						song: '',
+						playing: false,
+						progress: {
+							progress: 0,
+							length: 0,
+							remaining: 0
+						},
+						playlist: ''
+					};
+
+					this.lastChecked = 0;
+					this.progress = 0;
+					this.songPosition = '0:00';
+
+				}.bind(this));
 
 		},
 

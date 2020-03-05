@@ -4,8 +4,10 @@
 
 	use Phpfastcache\Helper\Psr16Adapter;
 
-	$defaultDriver = 'Files';
-	$cache = new Psr16Adapter($defaultDriver);
+	if (!isset($cache)) {
+		$defaultDriver = 'Files';
+		$cache = new Psr16Adapter($defaultDriver);
+	}
 
 	$breaker = false;
 	if (!empty($skip_cache_breaker)) {
