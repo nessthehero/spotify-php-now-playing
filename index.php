@@ -25,8 +25,6 @@
 		$desc = 'Playlist: ' . $playlist->name;
 	}
 
-	$seconds_left = current_track_seconds_left($current);
-
 ?>
 
 <html prefix="og: http://ogp.me/ns#">
@@ -46,9 +44,6 @@
 	<?php endif; ?>
 	<?php if (!empty($art)): ?>
 		<meta name="twitter:image" content="<?php print $art; ?>"/>
-	<?php endif; ?>
-	<?php if (!empty($seconds_left)): ?>
-		<meta http-equiv="refresh" content="<?php print $seconds_left; ?>"/>
 	<?php endif; ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
