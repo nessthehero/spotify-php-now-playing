@@ -18,7 +18,8 @@
 			'remaining' => 0
 		),
 		'albumart' => '',
-		'playlist' => ''
+		'playlist' => '',
+		'href' => ''
 	);
 
 	$current = current_track($cache);
@@ -38,6 +39,7 @@
 		$response['albumname'] = current_track_album($current);
 
 		$response['progress'] = current_track_progress($current);
+		$response['href'] = current_track_href($current);
 
 	}
 

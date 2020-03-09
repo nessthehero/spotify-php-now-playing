@@ -182,20 +182,22 @@
 </head>
 <body>
 	<div id="player">
-		<div class="album" v-bind:style="albumArt">
-		</div>
-		<div class="info" v-if="song.playing">
-			<div class="progress-bar">
-				<div class="time--current">{$ songPosition $}</div>
-				<div class="time--total">{$ songLength $}</div>
-				<div class="fill" v-bind:style="progressBar"></div>
+		<a v-bind:href="song.href" v-bind:disabled="song.href === ''" target="_blank">
+			<div class="album" v-bind:style="albumArt">
 			</div>
-			<div class="currently-playing">
-				<h2 class="song-name">{$ song.song $}</h2>
-				<h3 class="artist-name">{$ song.artist $}</h3>
-				<h4 class="artist-name">{$ song.albumname $}</h4>
+			<div class="info" v-if="song.playing">
+				<div class="progress-bar">
+					<div class="time--current">{$ songPosition $}</div>
+					<div class="time--total">{$ songLength $}</div>
+					<div class="fill" v-bind:style="progressBar"></div>
+				</div>
+				<div class="currently-playing">
+					<h2 class="song-name">{$ song.song $}</h2>
+					<h3 class="artist-name">{$ song.artist $}</h3>
+					<h4 class="artist-name">{$ song.albumname $}</h4>
+				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 	<footer>
 		<p>design made by <a href="https://codepen.io/juliepark"> julie</a> ♡

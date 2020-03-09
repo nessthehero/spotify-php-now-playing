@@ -24,7 +24,8 @@ window.vm = new Vue({
 				length: 0,
 				remaining: 0
 			},
-			playlist: ''
+			playlist: '',
+			href: ''
 		},
 		lastChecked: 0,
 		progress: 0,
@@ -131,12 +132,17 @@ window.vm = new Vue({
 							length: 0,
 							remaining: 0
 						},
-						playlist: ''
+						playlist: '',
+						href: ''
 					};
 
 					this.lastChecked = 0;
 					this.progress = 0;
 					this.songPosition = '0:00';
+
+					let pageTitle = 'zZzZ';
+
+					window.document.title = pageTitle;
 
 				}.bind(this));
 

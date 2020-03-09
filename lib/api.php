@@ -246,6 +246,16 @@
 
 	}
 
+	function current_track_href($current) {
+
+		if (isset($current->item->external_urls->spotify)) {
+			return $current->item->external_urls->spotify;
+		}
+
+		return '';
+
+	}
+
 	function current_track_apa($current) {
 
 		$return = '';
