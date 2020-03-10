@@ -14,6 +14,11 @@
 		$breaker = $skip_cache_breaker;
 	}
 
+	$api = _get_api_object();
+	$me = $api->me();
+
 	$current = current_track($cache, $breaker);
 
 	print_r($current);
+
+	print_r($me);
