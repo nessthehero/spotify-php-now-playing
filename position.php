@@ -1,12 +1,5 @@
 <?php
 
-	require_once 'lib/api.php';
-
-	use Phpfastcache\Helper\Psr16Adapter;
-
-	$defaultDriver = 'Files';
-	$cache = new Psr16Adapter($defaultDriver);
-
 	$response = array(
 		'playing' => false,
 		'song' => '',
@@ -21,6 +14,17 @@
 		'playlist' => '',
 		'href' => ''
 	);
+
+	print $response;
+
+	/*
+
+	require_once 'lib/api.php';
+
+	use Phpfastcache\Helper\Psr16Adapter;
+
+	$defaultDriver = 'Files';
+	$cache = new Psr16Adapter($defaultDriver);
 
 	$current = current_track($cache);
 
@@ -52,3 +56,5 @@
 	}
 
 	print json_encode($response);
+
+	/* */
