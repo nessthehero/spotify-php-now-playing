@@ -20,20 +20,21 @@
 
 	print_r('-- current --' . PHP_EOL);
 	print_r($current);
+	print_r($api->getLastResponse());
 	print_r('-- end current --' . PHP_EOL);
 
 	$playing = $api->getMyCurrentPlaybackInfo();
 
-	print_r($api->getLastResponse());
-
 	print_r('-- playing --' . PHP_EOL);
 	print_r($playing);
+	print_r($api->getLastResponse());
 	print_r('-- end playing --' . PHP_EOL);
 
 	$playing2 = $api->getMyCurrentTrack();
 
 	print_r('-- playing2 --' . PHP_EOL);
 	print_r($playing2);
+	print_r($api->getLastResponse());
 	print_r('-- end playing2 --' . PHP_EOL);
 
 	$recent = $api->getMyRecentTracks();
