@@ -15,7 +15,7 @@
 		'href' => ''
 	);
 
-	print $response;
+	print json_encode($response);
 
 	/*
 
