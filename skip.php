@@ -1,5 +1,9 @@
 <?php
 
+	print 'Spotify integration temporarily disabled';
+
+	/*
+
 	require_once 'lib/api.php';
 
 	use Phpfastcache\Helper\Psr16Adapter;
@@ -38,3 +42,4 @@
 		echo 'unable to skip' . PHP_EOL;
 	}
 
+/* */
