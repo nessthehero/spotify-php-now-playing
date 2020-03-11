@@ -27,6 +27,8 @@
 	print_r($current);
 	print_r('-- end current --' . PHP_EOL);
 
+	print_r($api->getLastResponse());
+
 	print_r('-- playing --' . PHP_EOL);
 	print_r($playing);
 	print_r('-- end playing --' . PHP_EOL);
