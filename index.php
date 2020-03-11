@@ -2,6 +2,8 @@
 
 	print 'Spotify integration temporarily disabled';
 
+	$api = _get_api_object();
+
 	/*
 
 	require_once 'lib/api.php';
