@@ -59,7 +59,11 @@
 
 		$deviceId = $_GET['device'];
 
-		$device = $api->play($deviceId);
+		try {
+			$device = $api->play($deviceId);
+		} catch (Exception $e) {
+			print_r($e->getMessage());
+		}
 		print_r($api->getLastResponse());
 
 	}
