@@ -55,3 +55,11 @@
 	print_r($devices);
 	print_r('-- end devices --' . PHP_EOL);
 
+	if (!empty($_GET['device'])) {
+
+		$deviceId = $_GET['device'];
+
+		$device = $api->play($deviceId);
+		print_r($api->getLastResponse());
+
+	}
