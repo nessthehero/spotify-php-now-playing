@@ -1,6 +1,6 @@
 <?php
 
-	print 'Spotify integration temporarily disabled';
+	print 'Spotify integration temporarily disabled. Reason: The iPad is not talking to the API properly.';
 
 //	require_once 'lib/api.php';
 //
