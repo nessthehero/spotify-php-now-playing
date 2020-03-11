@@ -15,11 +15,6 @@
 	}
 
 	$api = _get_api_object();
-	$me = $api->me();
-	$devices = $api->getMyDevices();
-	$playing = $api->getMyCurrentPlaybackInfo();
-	$playing2 = $api->getMyCurrentTrack();
-	$recent = $api->getMyRecentTracks();
 
 	$current = current_track($cache, $breaker);
 
@@ -27,23 +22,33 @@
 	print_r($current);
 	print_r('-- end current --' . PHP_EOL);
 
+	$playing = $api->getMyCurrentPlaybackInfo();
+
 	print_r($api->getLastResponse());
 
 	print_r('-- playing --' . PHP_EOL);
 	print_r($playing);
 	print_r('-- end playing --' . PHP_EOL);
 
+	$playing2 = $api->getMyCurrentTrack();
+
 	print_r('-- playing2 --' . PHP_EOL);
 	print_r($playing2);
 	print_r('-- end playing2 --' . PHP_EOL);
+
+	$recent = $api->getMyRecentTracks();
 
 	print_r('-- recent --' . PHP_EOL);
 	print_r($recent);
 	print_r('-- end recent --' . PHP_EOL);
 
+	$me = $api->me();
+
 	print_r('-- me --' . PHP_EOL);
 	print_r($me);
 	print_r('-- end me --' . PHP_EOL);
+
+	$devices = $api->getMyDevices();
 
 	print_r('-- devices --' . PHP_EOL);
 	print_r($devices);
