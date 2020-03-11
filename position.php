@@ -1,5 +1,7 @@
 <?php
 
+	/*
+
 	$response = array(
 		'playing' => false,
 		'song' => '',
@@ -17,7 +19,7 @@
 
 	print json_encode($response);
 
-	/*
+	/* */
 
 	require_once 'lib/api.php';
 

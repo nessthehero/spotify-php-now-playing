@@ -7,13 +7,11 @@
 	$defaultDriver = 'Files';
 	$cache = new Psr16Adapter($defaultDriver);
 
-	print 'Spotify integration temporarily disabled';
+//	print 'Spotify integration temporarily disabled';
 
-	$api = _get_api_object();
+//	$api = _get_api_object();
 
-	/*
-
-
+	/* */
 
 	$art = '';
 	$nowplaying = '';
