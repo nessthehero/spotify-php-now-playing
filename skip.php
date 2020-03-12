@@ -1,8 +1,10 @@
 <?php
 
+	/*
+
 	print 'Spotify integration temporarily disabled';
 
-	/*
+	/* */
 
 	require_once 'lib/api.php';
 
