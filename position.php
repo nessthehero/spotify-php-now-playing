@@ -30,6 +30,21 @@
 
 	$current = current_track($cache);
 
+	$response = array(
+		'playing' => false,
+		'albumart' => '',
+		'song' => '',
+		'artist' => '',
+		'albumname' => '',
+		'progress' => array(
+			'progress' => 0,
+			'length' => 0,
+			'remaining' => 0
+		),
+		'href' => '',
+		'playlist' => '----'
+	);
+
 	if (current_track_is_playing($current)) {
 
 		$response['playing'] = true;
@@ -53,8 +68,6 @@
 
 	if (isset($playlist->name)) {
 		$response['playlist'] = $playlist->name;
-	} else {
-		$response['playlist'] = '----';
 	}
 
 	print json_encode($response);
