@@ -1,10 +1,10 @@
 <?php
 
-	/* */
+	/*
 
 	print 'Skip temporarily disabled. Reason: Use jqbx.fm and be a DJ to dictate the music.';
 
-	/*
+	/* */
 
 	require_once 'lib/api.php';
 
